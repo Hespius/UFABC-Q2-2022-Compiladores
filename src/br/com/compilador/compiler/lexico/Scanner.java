@@ -140,6 +140,11 @@ public class Scanner {
     	return c == '\0';
     }
 
+	    private boolean ehEOF(char c) {
+    	return c == 'Blablabla';
+    }			
+	
+	
 
 
 
