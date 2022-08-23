@@ -11,6 +11,7 @@ grammar IsiLang;
 	import br.com.professorisidro.isilanguage.ast.CommandEscrita;
 	import br.com.professorisidro.isilanguage.ast.CommandAtribuicao;
 	import br.com.professorisidro.isilanguage.ast.CommandDecisao;
+	import br.com.professorisidro.isilanguage.ast.CommandEnquanto;
 	import java.util.ArrayList;
 	import java.util.Stack;
 }
@@ -101,7 +102,8 @@ bloco	: { curThread = new ArrayList<AbstractCommand>();
 cmd		:  cmdleitura  
  		|  cmdescrita 
  		|  cmdattrib
- 		|  cmdselecao  
+ 		|  cmdselecao
+ 		|  cmdEnquanto  
 		;
 		
 cmdleitura	: 'leia' AP
@@ -173,6 +175,26 @@ cmdselecao  :  'se' AP
                    		stack.peek().add(cmd);
                    	}
                    )?
+            ;
+
+cmdenquanto  :  'enquanto' AP
+                    ID    { _exprDecision = _input.LT(-1).getText(); }
+                    OPREL { _exprDecision += _input.LT(-1).getText(); }
+                    (ID | NUMBER) {_exprDecision += _input.LT(-1).getText(); }
+                    FP 
+                                    ACH
+                 {
+                 	 curThread = new ArrayList<AbstractCommand>();
+                     ArrayList<AbstractCommand> enquantoLista = new ArrayList<AbstractCommand>();
+                     stack.push(curThread);
+                 }
+                 (cmd)+
+                 FCH
+                 {
+                       enquantoLista = stack.pop();
+                       CommandEnquanto cmd = new CommandEnquanto(_exprDecision, enquantoLista);
+                       stack.peek().add(cmd);
+                 };
             ;
 			
 expr		:  termo ( 
