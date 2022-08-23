@@ -177,12 +177,12 @@ cmdselecao  :  'se' AP
                    )?
             ;
 
-cmdenquanto  :  'enquanto' AP
-                    ID    { _exprDecision = _input.LT(-1).getText(); }
-                    OPREL { _exprDecision += _input.LT(-1).getText(); }
-                    (ID | NUMBER) {_exprDecision += _input.LT(-1).getText(); }
-                    FP 
-                                    ACH
+cmdEnquanto  :  'enquanto' AP
+                 ID { _exprDecision = _input.LT(-1).getText(); }
+                 OPREL { _exprDecision += _input.LT(-1).getText(); }
+                 (ID | NUMBER) {_exprDecision += _input.LT(-1).getText(); }
+                 FP
+                 ACH
                  {
                  	 curThread = new ArrayList<AbstractCommand>();
                      ArrayList<AbstractCommand> enquantoLista = new ArrayList<AbstractCommand>();
@@ -194,9 +194,9 @@ cmdenquanto  :  'enquanto' AP
                        enquantoLista = stack.pop();
                        CommandEnquanto cmd = new CommandEnquanto(_exprDecision, enquantoLista);
                        stack.peek().add(cmd);
-                 };
-            ;
-			
+                 }
+		;
+
 expr		:  termo ( 
 	             OP  { _exprContent += _input.LT(-1).getText();}
 	            termo
