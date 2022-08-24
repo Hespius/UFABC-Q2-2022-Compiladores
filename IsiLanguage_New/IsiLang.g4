@@ -39,7 +39,7 @@ grammar IsiLang;
 		}
 	}
 	
-	public void verificaVarsNaoUtilizadas() {
+	public void verificaNaoUsada() {
 		naoUtilizados = new ArrayList<String>();
         for (IsiSymbol is : symbolTable.getAll()) {
         	IsiVariable isiVar = (IsiVariable)is;
@@ -48,7 +48,7 @@ grammar IsiLang;
             }
 		}
 
-		if (listaNaoUsados.size() != 0) {
+		if (naoUtilizados.size() != 0) {
         	System.out.println("\nWARNING - Variable not used"
         	    + String.join(", ", naoUtilizados));
 		}

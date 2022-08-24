@@ -15,11 +15,11 @@ public class CommandEnquanto extends AbstractCommand {
     @Override
     public String generateJavaCode() {
         StringBuilder str = new StringBuilder();
-        str.append("\twhile(").append(condition).append("){\n\t");
+        str.append("while (").append(condition).append("){\n");
         for(AbstractCommand cmd: this.enquantoCommands){
             str.append(cmd.generateJavaCode());
         }
-        str.append("\n\t}");
+        str.append("}\n");
         return str.toString();
     }
 
@@ -31,6 +31,6 @@ public class CommandEnquanto extends AbstractCommand {
     		bdr.append("\t");
     		bdr.append(c);
        	}
-        return "Comando Enquanto [enquanto " + condition + " + " +  bdr + " ]" ;
+        return "ComandoEnquanto [enquanto " + condition + " + " +  bdr + " ]" ;
 }
 }

@@ -34,7 +34,6 @@ public class MainClass {
 			
 			parser.exibeComandos();
 			
-			parser.verificaVarsNaoUtilizadas();
 			
 			parser.generateCode();
 			
