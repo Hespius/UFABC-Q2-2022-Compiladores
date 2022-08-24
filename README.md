@@ -30,4 +30,4 @@ Geração de pelo menos 1 linguagem destino (C/Java/Python)                     
 
 </br>
 
-Link do vídeo do projeto:
+Link do vídeo do projeto: https://youtu.be/jR1hO4Gus9Y
