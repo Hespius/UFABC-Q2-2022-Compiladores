@@ -17,9 +17,9 @@ programa
      escreva (b);
   }
    
- enquanto (a>c){
-    escreva (d);
-    d = d+5;
+ enquanto (c<12){
+    escreva (c);
+    c = c+1;
   }
  
   

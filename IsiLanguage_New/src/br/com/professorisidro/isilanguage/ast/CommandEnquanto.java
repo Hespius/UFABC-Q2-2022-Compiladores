@@ -31,6 +31,6 @@ public class CommandEnquanto extends AbstractCommand {
     		bdr.append("\t");
     		bdr.append(c);
        	}
-        return "Comando de repetição lido com sucesso! [enquanto (" + condition + " ) {\n" +  bdr + "\t}" ;
+        return "Comando Enquanto [enquanto " + condition + " + " +  bdr + " ]" ;
 }
 }
