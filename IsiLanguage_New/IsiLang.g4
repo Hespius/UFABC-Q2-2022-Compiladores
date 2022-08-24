@@ -39,6 +39,21 @@ grammar IsiLang;
 		}
 	}
 	
+	public void verificaVarsNaoUtilizadas() {
+		naoUtilizados = new ArrayList<String>();
+        for (IsiSymbol is : symbolTable.getAll()) {
+        	IsiVariable isiVar = (IsiVariable)is;
+            if (isiVar.getValue() == null) {
+            	naoUtilizados.add(isiVar.getName());
+            }
+		}
+
+		if (listaNaoUsados.size() != 0) {
+        	System.out.println("\nWARNING - Variable not used"
+        	    + String.join(", ", naoUtilizados));
+		}
+	}
+	
 	public void exibeComandos(){
 		for (AbstractCommand c: program.getComandos()){
 			System.out.println(c);

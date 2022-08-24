@@ -7,7 +7,7 @@ import br.com.professorisidro.isilanguage.exceptions.IsiSemanticException;
 import br.com.professorisidro.isilanguage.parser.IsiLangLexer;
 import br.com.professorisidro.isilanguage.parser.IsiLangParser;
 
-/* esta é a classe que é responsável por criar a interação com o usuário
+/* esta ï¿½ a classe que ï¿½ responsï¿½vel por criar a interaï¿½ï¿½o com o usuï¿½rio
  * instanciando nosso parser e apontando para o arquivo fonte
  * 
  * Arquivo fonte: extensao .isi
@@ -19,7 +19,7 @@ public class MainClass {
 			IsiLangLexer lexer;
 			IsiLangParser parser;
 			
-			// leio o arquivo "input.isi" e isso é entrada para o Analisador Lexico
+			// leio o arquivo "input.isi" e isso ï¿½ entrada para o Analisador Lexico
 			lexer = new IsiLangLexer(CharStreams.fromFileName("input.isi"));
 			
 			// crio um "fluxo de tokens" para passar para o PARSER
@@ -34,7 +34,11 @@ public class MainClass {
 			
 			parser.exibeComandos();
 			
+			parser.verificaVarsNaoUtilizadas();
+			
 			parser.generateCode();
+			
+			
 			
 		}
 		catch(IsiSemanticException ex) {

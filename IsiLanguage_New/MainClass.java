@@ -5,16 +5,17 @@ public class MainClass{
 double  a;
 double  b;
 double  c;
+double  d;
 String  t1;
 a= _key.nextDouble();
 b= _key.nextDouble();
 a = 1+2*3/b;
-c = 10;
+c = 10.2;
 if (a>b) {
 System.out.println(a);}else {
 System.out.println(b);}
 
 	while(c<12){
-	System.out.println(c);c = c+1;
+	System.out.println(c);c = c+1.2;
 	}
   }}
